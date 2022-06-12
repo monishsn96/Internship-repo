@@ -1,0 +1,26 @@
+<html>
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Skills Management</div>
+    <div class="page__content shadow p-3 position-relative">
+      <div class="page__content-data position-absolute text-center">
+        <body ng-controller="addSkillsController">
+          <h1>Add your Skills here</h1>
+          <ul>
+            <div id="count">
+            <p>Number of skills acquired : {{c}}</p> 
+            </div>
+            <p>your current skills</p>
+            <li  *ngFor="let skill of skilllist ">
+              {{skill.name}}
+              <button (click)="deleteSkill(skill.name)">x</button>
+            </li>
+          </ul>
+         <form name="skillsFrm" >
+            <input type="text" id="input" name="newSkill"   [(ngModel)]="newSkill" required />
+            <button ng-disabled="skillsFrm.$invalid" type="submit"  (click)="addSkill()">Add</button>
+         </form>
+       </body>
+      </div>
+    </div>
+  </div>
+</html>
